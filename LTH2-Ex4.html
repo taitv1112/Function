@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.-->
+        <script>
+            let soPhanTu = parseInt(prompt(" Nhập số phần tử mảng a: "));
+            let intNumber = new Array(soPhanTu);
+            for(let i=0;i<intNumber.length;i++){
+                intNumber[i] = prompt("Nhập giá trị thứ: " + i + "của mảng a: ");
+            }
+            document.write(intNumber + "</br>");
+            function checkNumber(intNumber) {
+                let number = -Infinity;
+                let count = 0;
+                for (let i = 0; i < intNumber.length; i++) {
+                    if (intNumber[i] > number) {
+                        count++;
+                    }
+                }
+                if(count != 0){
+                    alert("true")
+                }else {
+                    alert("false")
+                }
+            }
+            checkNumber(intNumber)
+        </script>
+</body>
+</html>

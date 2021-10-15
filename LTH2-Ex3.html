@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm tính giai thừa của một số nguyên</title>
+</head>
+<body>
+<!--Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.-->
+    <script>
+        //n! = n x (n - 1) x (n-2) .... 4 x 3 x 2 x 1
+        let n = +prompt("Nhập số cần tính giai thừa ")
+        function factorial(n) {
+            let factorial = 1 ;
+            for(i=1;i<=n;i++){
+                factorial *=i ;
+            }
+            document.write("Gia thừa bằng: " + factorial);
+
+        }
+        factorial(n);
+
+    </script>
+</body>
+</html>

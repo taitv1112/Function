@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let numbers = parseInt(prompt(" Nhập số lượng số cần so sánh: "));
+        let intNumber = new Array(numbers);
+        for(let i=0 ; i<intNumber.length; i++){
+            intNumber[i] = prompt("So thứ " + i + "của mảng a: ");
+        }
+        document.write(intNumber + "</br>");
+        function findMinArray(arr){
+            if(arr.length === 0)
+                return -1;
+            let min = arr[0];
+
+            for(let i = 1; i < arr.length; i++){
+                if(arr[i] < min){
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+        let min = findMinArray(intNumber);
+        document.write(min);
+
+    </script>
+</body>
+</html>
