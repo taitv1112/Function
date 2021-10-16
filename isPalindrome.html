@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+    <label><input type="text" id="chuoi" ></label>
+    <label><input type="button" value="Check" onclick="isPalindrome()" ></label>
+    <p id="result"></p>
+    <script>
+
+        function isPalindrome(){
+            let a = document.getElementById("chuoi").value;
+            if (a.trim() === ""){
+                return alert("Bạn chưa nhập đúng định dạng vui lòng nhập lại !!");
+            }
+            let check = true ;
+            for (let i = 0; i < a.length; i++) {
+                if(a[i] !== a[a.length-1 -i]){
+                    check = false;
+                    break;
+                }
+
+            }
+            if(check){
+                document.getElementById('result').innerText = "Từ bạn nhập là Palindrome"
+            }else {
+                document.getElementById('result').innerText = "Từ bạn không là Palindrome"
+            }
+        }
+    </script>
+</body>
+
+</html>
