@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+</head>
+<style>
+    .addNew {
+        border-radius: 3px;
+        background-color: #e7e0e0;
+        width: 33%;
+        padding: 25px;
+    }
+
+    .addNew input, button {
+        width: 40%;
+        padding: 8px;
+        font-size: 10px;
+        border-collapse: collapse;
+        border: 1px solid;
+        border-radius: 3px;
+    }
+
+    .addNew input {
+        width: 80%;
+        border: 1px solid rgba(171, 165, 165, 0.99);
+
+    }
+
+    .addNew button {
+        color: white;
+        background-color: #65b40d;
+        border: 1px solid #65b40d;
+        width: 10%;
+    }
+
+    button {
+        border-radius: 3px;
+        border-collapse: collapse;
+        border: 1px solid #65b40d;
+        color: white;
+        background-color: #65b40d;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        padding: 20px;
+    }
+
+    td, th {
+        padding: 5px;
+    }
+
+    .titleProduct {
+        text-align: left;
+    }
+
+    .subtitleProduct {
+        color: rgba(133, 27, 27, 0.75);
+        text-align: right;
+    }
+
+    .btn {
+        text-align: left;
+    }
+
+    tr:nth-child(2n) {
+        background-color: #ebe1e1;
+    }
+</style>
+<body>
+<h3>Add New Product</h3>
+        <div class="addNew">
+            <label><input type="text" placeholder="New Product" id="addnew"></label>
+            <button onclick="addProduct()" >Add</button>
+        </div>
+<h3>Display All Product</h3>
+<div>
+    <table>
+
+            <tr>
+                <th colspan="6" class="titleProduct">Product Name</th>
+                <th class="subtitleProduct"><span id="numberProduct"></span> products</th>
+            </tr>
+
+        <tbody id="showProduct">
+
+        </tbody>
+
+
+    </table>
+</div>
+<script>
+    let arr = new Array();
+    arr = ['Sony Xperia', 'Samsung Galaxy'];
+    showProduct(arr);
+    function keydownHandler(evt){
+
+    }
+    function showProduct(arr) {
+        let sOut = "";
+        document.getElementById("numberProduct").innerText = arr.length;
+        for (let i = 0; i < arr.length; i++) {
+            sOut += "<tr>"
+            sOut += '<td colspan="4" id = "nameProduct" class="titleProduct" >' + arr[i] + '</td>'
+            sOut += '<td colspan="2" class="btn">' + '<button onclick="editNameProduct(' + i + ')">' + "Edit" + '</button>' + '</td>'
+            sOut += '<td colspan="2" class="btn" >' + '<button onclick="deleteProduct(' + i + ')">' + "Delete" + '</button>' + '</td>'
+            sOut += "</tr>"
+        }
+        document.getElementById("showProduct").innerHTML = sOut;
+    }
+
+    function addProduct() {
+        let product = document.getElementById("addnew").value;
+        if (product.trim() === "" || product.trim() == null) {
+            return alert("Bạn chưa nhập tên sản phẩm. Vui lòng nhập:")
+        }
+        arr.push(product);
+        document.getElementById("addnew").value = "";
+        showProduct(arr);
+    }
+
+    function editNameProduct(id) {
+        let a = prompt("Nhập vào tên sản phẩm bạn muốn thay đổi", arr[id]);
+        if (a.trim() === "") {
+            document.getElementById("newProduct").value = "";
+            return alert("Bạn chưa nhập giá trị !! xin hãy nhập lại !!");
+        }
+        arr[id] = a;
+        showProduct(arr);
+    }
+
+    function deleteProduct(id) {
+        arr.splice(id, 1);
+        showProduct(arr);
+    }
+</script>
+</body>
+</html>
